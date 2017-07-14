@@ -10,21 +10,30 @@
   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
+  <title>
+    <%= title %>
+  </title>
+
+  <link rel="stylesheet" href="/css/header.css">
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/ranking-1.css' />
+  <link rel="stylesheet" href="/stylesheets/foot.css">
 </head>
 
 <body>
-  <% include header %>
+  <% include ./header %>
+    <!-- <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p> -->
     <div class="wrap">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-md-9 main">
+          <div class="col-xs-12 col-md-9 main height-content">
             <ul class="nav nav-tabs md10 mt30 title" role="tablist">
-              <li role="presentation"><a href="#oneNew" aria-controls="oneNew" role="tab" data-toggle="tab">最新动态</a></li>
-              <li role="presentation" class="active"><a href="#towNew" aria-controls="towNew" role="tab" data-toggle="tab">最新回答</a></li>
-              <li role="presentation"><a href="#threHot" aria-controls="threHot" role="tab" data-toggle="tab">热门回答</a></li>
-              <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">等待回答</a></li>
-              <li role="presentation"><a href="#pay" aria-controls="pay" role="tab" data-toggle="tab">付费回答</a></li>
+              <li role="col-xs-2 presentation"><a href="#oneNew" aria-controls="oneNew" role="tab" data-toggle="tab">最新动态</a></li>
+              <li role="col-xs-2 presentation" class="active"><a href="#towNew" aria-controls="towNew" role="tab" data-toggle="tab">最新回答</a></li>
+              <li role="col-xs-2 presentation"><a href="#threHot" aria-controls="threHot" role="tab" data-toggle="tab">热门回答</a></li>
+              <li role="col-xs-2 presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">等待回答</a></li>
+              <li role="col-xs-2 presentation"><a href="#pay" aria-controls="pay" role="tab" data-toggle="tab">付费回答</a></li>
             </ul>
 
             <div class="tab-content">
@@ -367,48 +376,9 @@
               <!-- pay end -->
             </div>
           </div>
-
-          <div class="widget-box col-md-3">
-            <div class="text-muted md10">
-              <span>排序：</span>
-              <div class="btn-group btn-group-xs">
-                <a class="btn btn-default active">日热门</a>
-                <a class="btn btn-default">周热门</a>
-                <a class="btn btn-default">月热门</a>
-              </div>
-            </div>
-            <!-- 日榜单 -->
-            <ol id="userDaily" class='widget-top10'>
-              <li class="text-muted">
-                <img src="https://static.segmentfault.com/v-5964378c/global/img/user-64.png" alt="" class="avatar-24">
-                <a href="" class="ellipsis">孙权</a>
-                <span class="text-muted pull-right">+999</span>
-              </li>
-
-              <li class="text-muted">
-                <img src="https://static.segmentfault.com/v-5964378c/global/img/user-64.png" alt="" class="avatar-24">
-                <a href="" class="ellipsis">孙权</a>
-                <span class="text-muted pull-right">+999</span>
-              </li>
-            </ol>
-            <!-- 月榜单 -->
-            <ol id="userWeekly" class='widget-top10 hide'>
-              <li class="text-muted">
-                <img src="https://static.segmentfault.com/v-5964378c/global/img/user-64.png" alt="" class="avatar-24">
-                <a href="" class="ellipsis">孙权</a>
-                <span class="text-muted pull-right">+999</span>
-              </li>
-            </ol>
-            <!-- 月榜单 -->
-            <ol id="userMonthly" class='widget-top10 hide'>
-              <li class="text-muted">
-                <img src="https://static.segmentfault.com/v-5964378c/global/img/user-64.png" alt="" class="avatar-24">
-                <a href="" class="ellipsis">孙权</a>
-                <span class="text-muted pull-right">+999</span>
-              </li>
-            </ol>
-          </div>
+          <% include ./ranking-1 %>
         </div>
+        <% include ./page %>
       </div>
     </div>
 
@@ -417,6 +387,9 @@
         $(document).ready(function() {
 
           // $('.widget-top10').eq(0)
+          $('.no-left').addClass('disabled');
+          $('.now-page').addClass('active');
+
         });
       </script>
 </body>
